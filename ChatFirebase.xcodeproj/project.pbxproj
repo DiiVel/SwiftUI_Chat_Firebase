@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7404043E297DCF7A0094161B /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7404043D297DCF7A0094161B /* ImagePicker.swift */; };
 		7408F936297DB2AA00B80E32 /* ChatFirebaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408F935297DB2AA00B80E32 /* ChatFirebaseApp.swift */; };
 		7408F938297DB2AA00B80E32 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7408F937297DB2AA00B80E32 /* LoginView.swift */; };
 		7408F93A297DB2AB00B80E32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408F939297DB2AB00B80E32 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7404043D297DCF7A0094161B /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		7408F932297DB2AA00B80E32 /* ChatFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7408F935297DB2AA00B80E32 /* ChatFirebaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatFirebaseApp.swift; sourceTree = "<group>"; };
 		7408F937297DB2AA00B80E32 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -38,6 +40,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7404043F297DD0750094161B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7404043D297DCF7A0094161B /* ImagePicker.swift */,
+				7408F937297DB2AA00B80E32 /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		7408F929297DB2AA00B80E32 = {
 			isa = PBXGroup;
 			children = (
@@ -57,8 +68,8 @@
 		7408F934297DB2AA00B80E32 /* ChatFirebase */ = {
 			isa = PBXGroup;
 			children = (
+				7404043F297DD0750094161B /* Views */,
 				7408F935297DB2AA00B80E32 /* ChatFirebaseApp.swift */,
-				7408F937297DB2AA00B80E32 /* LoginView.swift */,
 				7408F948297DC37C00B80E32 /* GoogleService-Info.plist */,
 				7408F939297DB2AB00B80E32 /* Assets.xcassets */,
 				7408F93B297DB2AB00B80E32 /* Preview Content */,
@@ -152,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7404043E297DCF7A0094161B /* ImagePicker.swift in Sources */,
 				7408F938297DB2AA00B80E32 /* LoginView.swift in Sources */,
 				7408F936297DB2AA00B80E32 /* ChatFirebaseApp.swift in Sources */,
 			);
