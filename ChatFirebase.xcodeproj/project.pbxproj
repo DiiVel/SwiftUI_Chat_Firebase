@@ -13,6 +13,7 @@
 		7408F93D297DB2AB00B80E32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7408F93C297DB2AB00B80E32 /* Preview Assets.xcassets */; };
 		7408F945297DC05B00B80E32 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7408F944297DC05B00B80E32 /* FirebaseAuth */; };
 		7408F947297DC05B00B80E32 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7408F946297DC05B00B80E32 /* FirebaseStorage */; };
+		7408F949297DC37C00B80E32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7408F948297DC37C00B80E32 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		7408F937297DB2AA00B80E32 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7408F939297DB2AB00B80E32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7408F93C297DB2AB00B80E32 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7408F948297DC37C00B80E32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				7408F935297DB2AA00B80E32 /* ChatFirebaseApp.swift */,
 				7408F937297DB2AA00B80E32 /* LoginView.swift */,
+				7408F948297DC37C00B80E32 /* GoogleService-Info.plist */,
 				7408F939297DB2AB00B80E32 /* Assets.xcassets */,
 				7408F93B297DB2AB00B80E32 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			files = (
 				7408F93D297DB2AB00B80E32 /* Preview Assets.xcassets in Resources */,
 				7408F93A297DB2AB00B80E32 /* Assets.xcassets in Resources */,
+				7408F949297DC37C00B80E32 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,11 +279,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatFirebase/Preview Content\"";
+				DEVELOPMENT_TEAM = 36Y8F35T8S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ChatFirebase;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -292,6 +300,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.ChatFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -303,11 +312,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatFirebase/Preview Content\"";
+				DEVELOPMENT_TEAM = 36Y8F35T8S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ChatFirebase;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -320,6 +333,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = edu.self.ChatFirebase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
