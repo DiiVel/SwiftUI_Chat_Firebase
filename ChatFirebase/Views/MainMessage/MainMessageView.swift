@@ -1,17 +1,79 @@
 import SwiftUI
+import SDWebImageSwiftUI
+
+class MainMessageViewModel: ObservableObject {
+    
+    @Published var errorMessage = ""
+    @Published var chatUser: ChatUser?
+    
+    init() {
+        
+        self.isUserCurrentlyLoggedOut = FirebaseManager.shared.auth.currentUser?.uid == nil
+        
+        fetchCurrentUser()
+    }
+    
+    func fetchCurrentUser() {
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
+            self.errorMessage = "Could not find firebase uid"
+            return
+        }
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                self.errorMessage = "Failed to fetch current user: \(error)"
+                return
+            }
+            
+            guard let data = snapshot?.data() else {
+                self.errorMessage = "No data found"
+                return
+            }
+            
+            self.chatUser = .init(data: data)
+        }
+    }
+    
+    @Published var isUserCurrentlyLoggedOut  = false
+    
+    func handleSignOut() {
+        isUserCurrentlyLoggedOut.toggle()
+        try? FirebaseManager.shared.auth.signOut()
+    }
+}
 
 struct MainMessageView: View {
     
     @State var shouldShowLogOutOptions = false
     
+    @ObservedObject private var viewModel = MainMessageViewModel()
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                customNavBar
+                messageView
+            }
+            .overlay(newMessageButton, alignment: .bottom)
+            .navigationBarHidden(true)
+        }
+    }
+    
     private var customNavBar: some View {
         HStack(spacing: 16) {
             
-            Image(systemName: "person.fill")
-                .font(.system(size: 34, weight: .heavy))
+            WebImage(url: URL(string: viewModel.chatUser?.profileImageUrl ?? ""))
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 50)
+                .clipped()
+                .cornerRadius(50)
+                .overlay(RoundedRectangle(cornerRadius: 50).stroke(Color(.label), lineWidth: 1))
+                .shadow(radius: 3)
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("USERNAME")
+                Text("\(viewModel.chatUser?.surname ?? "") \(viewModel.chatUser?.name ?? "")")
                     .font(.system(size: 24, weight: .bold ))
                 HStack {
                     Circle()
@@ -34,24 +96,20 @@ struct MainMessageView: View {
         .padding()
         .actionSheet(isPresented: $shouldShowLogOutOptions) {
             .init(title: Text("Settings"), message: Text("What do you want to do?"), buttons: [
-                .destructive(Text("Sign Out"), action: {print("handle sign out")}),
+                .destructive(Text("Sign Out"), action: {
+                    print("handle sign out")
+                    viewModel.handleSignOut()
+                }),
                 .cancel()
             ])
         }
-        
-    }
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                // custom  nav bar
-                customNavBar
-                messageView
-            }
-            .overlay(newMessageButton, alignment: .bottom)
-            .navigationBarHidden(true)
-            //            .navigationTitle("Main Messages View")
+        .fullScreenCover(isPresented: $viewModel.isUserCurrentlyLoggedOut, onDismiss: nil) {
+            LoginView (didCompleteLoginProcess: {
+                self.viewModel.isUserCurrentlyLoggedOut = false
+                self.viewModel.fetchCurrentUser()
+            })
         }
+        
     }
     
     private var messageView: some View {
@@ -107,9 +165,6 @@ struct MainMessageView: View {
 
 struct MainMessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MainMessageView()
-            .preferredColorScheme(.dark)
-        
         MainMessageView()
     }
 }
