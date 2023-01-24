@@ -14,7 +14,6 @@ class MainMessageViewModel: ObservableObject {
     }
     
     func fetchCurrentUser() {
-        
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {
             self.errorMessage = "Could not find firebase uid"
             return
@@ -70,7 +69,7 @@ struct MainMessageView: View {
                 .clipped()
                 .cornerRadius(50)
                 .overlay(RoundedRectangle(cornerRadius: 50).stroke(Color(.label), lineWidth: 1))
-                .shadow(radius: 3)
+                .shadow(radius: 5)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(viewModel.chatUser?.surname ?? "") \(viewModel.chatUser?.name ?? "")")

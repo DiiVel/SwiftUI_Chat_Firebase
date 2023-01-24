@@ -91,7 +91,6 @@ struct LoginView: View {
     private func handeAction() {
         if isLoginMode {
             loginUser()
-            
         } else {
             createNewAccount()
         }
