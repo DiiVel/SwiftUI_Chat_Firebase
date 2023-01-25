@@ -4,10 +4,10 @@ import SwiftUI
 struct ChatFirebaseApp: App {
     var body: some Scene {
         WindowGroup {
-//            LoginView(didCompleteLoginProcess: {
-//
-//            })
-            MainMessageView()
+            LoginView(didCompleteLoginProcess: {
+
+            })
+//            MainMessageView()
         }
     }
 }

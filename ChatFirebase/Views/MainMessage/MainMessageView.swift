@@ -95,7 +95,7 @@ struct MainMessageView: View {
         .padding()
         .actionSheet(isPresented: $shouldShowLogOutOptions) {
             .init(title: Text("Settings"), message: Text("What do you want to do?"), buttons: [
-                .destructive(Text("Sign Out"), action: {
+                .destructive(Text("Log Out"), action: {
                     print("handle sign out")
                     viewModel.handleSignOut()
                 }),
@@ -142,9 +142,11 @@ struct MainMessageView: View {
         }
     }
     
+    @State var shouldShowNewMessageScreen = false
+    
     private var newMessageButton: some View {
         Button{
-            
+            shouldShowNewMessageScreen.toggle()
         } label: {
             HStack {
                 Spacer()
@@ -158,6 +160,9 @@ struct MainMessageView: View {
             .cornerRadius(32)
             .shadow(radius: 15)
             .padding(.horizontal)
+        }
+        .fullScreenCover(isPresented: $shouldShowNewMessageScreen) {
+            NewMessageView()
         }
     }
 }
